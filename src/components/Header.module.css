@@ -1,0 +1,11 @@
+.header{
+    width:100%;
+    background: var(--gray-700);
+    padding: 5rem 0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.logo{
+
+}

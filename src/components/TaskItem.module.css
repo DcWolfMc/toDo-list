@@ -1,0 +1,32 @@
+.taskItem {
+  width: 100%;
+  gap: 0.75rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  color: var(--gray-100);
+  background: var(--gray-500);
+  border-radius: 8px;
+  border: 1px solid var(--gray-400);
+}
+.taskItem:hover {
+  border: 1px solid var(--purple-500);
+}
+.taskChecked {
+  text-decoration: line-through;
+  color: var(--gray-300);
+}
+.taskItem input[type="checkbox"]{
+    outline:transparent;
+    border: 4px solid var(--blue500);
+    background: transparent;
+}
+.deleteItem {
+  color: var(--gray-300);
+}
+.deleteItem:hover {
+  color: var(--red-500);
+  cursor: pointer;
+}
