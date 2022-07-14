@@ -1,6 +1,44 @@
-.checkboxBox{
-
+input[type="checkbox"] {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }
-.checkboxBox--active{
-    
+.checkboxBox {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  height: 1.5rem;
+  width: 1.5rem;
+  background: transparent;
+  border: 0.125rem solid var(--blue-500);
+  border-radius: 999px;
+  margin-right: 0.25rem;
+}
+.checkboxBox:hover {
+  border-color: var(--blue-700);
+  background: var(--blue-700-2);
+  cursor:pointer;
+}
+.checkboxBox--active {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  border-color: var(--purple-700);
+  background: var(--purple-700);
+}
+.checkboxBox--active:hover {
+  border-color: var(--purple-500);
+  background: var(--purple-500);
+  cursor:pointer;
+}
+.checkboxDisabled {
+  opacity: 70%;
+}
+.checkbox {
 }

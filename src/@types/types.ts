@@ -1,5 +1,5 @@
 export interface TaskItemType{
-    id: number;
+    id: string;
     content: string;
     checked?: boolean;
 }

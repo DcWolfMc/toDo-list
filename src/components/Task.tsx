@@ -1,4 +1,5 @@
 import styles from "./Task.module.css";
+import { v4 as uuidv4 } from 'uuid';
 import Clipboard from "../assets/Clipboard.svg";
 import { PlusCircle } from "phosphor-react";
 import { FormEvent, useState } from "react";
@@ -11,15 +12,15 @@ export const Task = () => {
   function handleSubmit(event: FormEvent) {
     event.preventDefault();
     let newTaskItem:TaskItemType = {
-      id: taskCount+1,
+      id: uuidv4(),
       content: newTask,
       checked: false,
       
     }
-    setTaskList([...taskList, newTaskItem])
+    setTaskList([newTaskItem, ...taskList,])
     setNewTask("");
   }
-  function handleCheckTask(taskId:number) {
+  function handleCheckTask(taskId:string) {
     let taskToCheck:TaskItemType = taskList.find((task)=>task.id==taskId)!
     let taskIndex = taskList.indexOf(taskToCheck)
     let taskChecked = {...taskToCheck, checked: !taskToCheck?.checked}
@@ -27,7 +28,7 @@ export const Task = () => {
     console.log(taskChecked);
     
   }
-  function handleDeleteTask(taskId:number) {
+  function handleDeleteTask(taskId:string) {
     let taskListWithoutDeleted = taskList.filter((task)=>{
       return task.id !== taskId
     })
@@ -70,7 +71,7 @@ export const Task = () => {
         {taskList.length >0 ? (
           <div className={styles.taskItemList}>
             {taskList.map((task)=>{
-              return(<TaskItem onCheckTask={handleCheckTask} onDeleteTask={handleDeleteTask} id={task.id} key={task.id} content={task.content}/>)
+              return(<TaskItem checked={task.checked} onCheckTask={handleCheckTask} onDeleteTask={handleDeleteTask} id={task.id} key={task.id} content={task.content}/>)
             })}
           </div>
         ) : (

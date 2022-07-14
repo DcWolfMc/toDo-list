@@ -2,12 +2,13 @@ import { Trash } from "phosphor-react";
 import { FunctionComponent } from "react";
 import { TaskItemType } from "../@types/types";
 import styles from './TaskItem.module.css'
+import {CustomCheckbox} from './CustomCheckbox'
 interface TaskItemProps {
-  id: number;
+  id: string;
   content: string;
   checked?: boolean;
-  onDeleteTask: (taskId: number) => void;
-  onCheckTask:  (taskId: number) => void;
+  onDeleteTask: (taskId: string) => void;
+  onCheckTask:  (taskId: string) => void;
 }
 export const TaskItem: FunctionComponent<TaskItemProps> = ({
   id,
@@ -24,8 +25,9 @@ export const TaskItem: FunctionComponent<TaskItemProps> = ({
     }
   return (
     <div className={styles.taskItem}>
+        <CustomCheckbox label={''} checked={checked} onChange={handleCheckItem}/>
         <input className={styles.checkbox} checked={checked} onChange={handleCheckItem} type="checkbox"/>
-            <p className={styles.content} >{content}</p>
+            <p className={`${styles.content } ${checked&& styles.taskChecked}`} >{content}</p>
             <Trash className={styles.deleteItem} onClick={handleDeleteItem} size={24}/>
         </div>
   )
